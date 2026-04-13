@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DBPA — Digital Behaviour Productivity Analysis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="dbpa.css"/>
+</head>
+<body>
+
+  <!-- Animated background grid -->
+  <div class="bg-grid"></div>
+  <div class="bg-orb orb1"></div>
+  <div class="bg-orb orb2"></div>
+  <div class="bg-orb orb3"></div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">◈</span>
+        <div class="logo-text">
+          <span class="logo-main">DBPA</span>
+          <span class="logo-sub">Digital Behaviour Productivity Analysis</span>
+        </div>
+      </div>
+      <nav class="nav-tags">
+        <span class="tag tag--active">Analysis</span>
+        <span class="tag">History</span>
+        <span class="tag">Reports</span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-label">SYSTEM ACTIVE · v2.4.1</div>
+      <h1 class="hero-title">Behaviour<br/><em>Intelligence</em></h1>
+      <p class="hero-desc">Input your daily digital habits. Our proprietary model calculates your cognitive stress index and anxiety vectors in real time.</p>
+    </section>
+
+    <!-- INPUT SECTION -->
+    <section class="panel input-panel">
+      <div class="panel-header">
+        <span class="panel-badge">01</span>
+        <h2 class="panel-title">Daily Input Parameters</h2>
+        <span class="panel-line"></span>
+      </div>
+
+      <div class="input-grid">
+
+        <div class="input-group">
+          <label class="input-label" for="sleepHours">
+            <span class="input-icon">◉</span> Sleep Hours
+            <span class="input-hint">Recommended: 7–9 hrs</span>
+          </label>
+          <div class="slider-wrap">
+            <input type="range" id="sleepHours" class="slider" min="0" max="12" step="0.5" value="7"/>
+            <div class="slider-value" id="sleepVal">7.0 <span>hrs</span></div>
+          </div>
+          <div class="slider-track-labels">
+            <span>0h</span><span>3h</span><span>6h</span><span>9h</span><span>12h</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="screenHours">
+            <span class="input-icon">◫</span> Screen Time
+            <span class="input-hint">Daily device usage hours</span>
+          </label>
+          <div class="slider-wrap">
+            <input type="range" id="screenHours" class="slider" min="0" max="16" step="0.5" value="6"/>
+            <div class="slider-value" id="screenVal">6.0 <span>hrs</span></div>
+          </div>
+          <div class="slider-track-labels">
+            <span>0h</span><span>4h</span><span>8h</span><span>12h</span><span>16h</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="workHours">
+            <span class="input-icon">⬡</span> Work / Study Hours
+            <span class="input-hint">Focused productive hours</span>
+          </label>
+          <div class="slider-wrap">
+            <input type="range" id="workHours" class="slider" min="0" max="14" step="0.5" value="8"/>
+            <div class="slider-value" id="workVal">8.0 <span>hrs</span></div>
+          </div>
+          <div class="slider-track-labels">
+            <span>0h</span><span>3.5h</span><span>7h</span><span>10.5h</span><span>14h</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="exerciseHours">
+            <span class="input-icon">◎</span> Exercise / Movement
+            <span class="input-hint">Physical activity duration</span>
+          </label>
+          <div class="slider-wrap">
+            <input type="range" id="exerciseHours" class="slider" min="0" max="4" step="0.25" value="1"/>
+            <div class="slider-value" id="exerciseVal">1.0 <span>hrs</span></div>
+          </div>
+          <div class="slider-track-labels">
+            <span>0h</span><span>1h</span><span>2h</span><span>3h</span><span>4h</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="socialMedia">
+            <span class="input-icon">◈</span> Social Media Usage
+            <span class="input-hint">Hours on social platforms</span>
+          </label>
+          <div class="slider-wrap">
+            <input type="range" id="socialMedia" class="slider" min="0" max="8" step="0.25" value="2"/>
+            <div class="slider-value" id="socialVal">2.0 <span>hrs</span></div>
+          </div>
+          <div class="slider-track-labels">
+            <span>0h</span><span>2h</span><span>4h</span><span>6h</span><span>8h</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="mealQuality">
+            <span class="input-icon">◇</span> Meal Quality Index
+            <span class="input-hint">1 = Poor nutrition · 10 = Optimal</span>
+          </label>
+          <div class="slider-wrap">
+            <input type="range" id="mealQuality" class="slider" min="1" max="10" step="1" value="6"/>
+            <div class="slider-value" id="mealVal">6 <span>/ 10</span></div>
+          </div>
+          <div class="slider-track-labels">
+            <span>1</span><span>3</span><span>5</span><span>7</span><span>10</span>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="analyze-btn" id="analyzeBtn" onclick="DBPAEngine.analyze()">
+        <span class="btn-icon">▶</span>
+        <span class="btn-text">Run Analysis</span>
+        <span class="btn-loader" id="btnLoader"></span>
+      </button>
+    </section>
+
+    <!-- RESULTS SECTION (hidden initially) -->
+    <section class="results-section" id="resultsSection">
+
+      <!-- Score Cards -->
+      <div class="panel-header">
+        <span class="panel-badge">02</span>
+        <h2 class="panel-title">Cognitive Health Scores</h2>
+        <span class="panel-line"></span>
+      </div>
+
+      <div class="score-grid">
+        <div class="score-card" id="stressCard">
+          <div class="score-card__label">STRESS INDEX</div>
+          <div class="score-card__number" id="stressNumber">--</div>
+          <div class="score-card__unit">/ 100</div>
+          <div class="score-card__level" id="stressLevel">—</div>
+          <div class="score-card__bar-wrap">
+            <div class="score-card__bar" id="stressBar"></div>
+          </div>
+          <div class="score-card__desc" id="stressDesc">Run analysis to see results</div>
+        </div>
+
+        <div class="score-card" id="anxietyCard">
+          <div class="score-card__label">ANXIETY VECTOR</div>
+          <div class="score-card__number" id="anxietyNumber">--</div>
+          <div class="score-card__unit">/ 100</div>
+          <div class="score-card__level" id="anxietyLevel">—</div>
+          <div class="score-card__bar-wrap">
+            <div class="score-card__bar" id="anxietyBar"></div>
+          </div>
+          <div class="score-card__desc" id="anxietyDesc">Run analysis to see results</div>
+        </div>
+
+        <div class="score-card" id="productivityCard">
+          <div class="score-card__label">PRODUCTIVITY SCORE</div>
+          <div class="score-card__number" id="productivityNumber">--</div>
+          <div class="score-card__unit">/ 100</div>
+          <div class="score-card__level" id="productivityLevel">—</div>
+          <div class="score-card__bar-wrap">
+            <div class="score-card__bar" id="productivityBar"></div>
+          </div>
+          <div class="score-card__desc" id="productivityDesc">Run analysis to see results</div>
+        </div>
+
+        <div class="score-card score-card--overall" id="overallCard">
+          <div class="score-card__label">OVERALL WELLBEING</div>
+          <div class="score-card__number" id="overallNumber">--</div>
+          <div class="score-card__unit">/ 100</div>
+          <div class="score-card__level" id="overallLevel">—</div>
+          <div class="score-card__ring-wrap">
+            <canvas id="ringChart" width="120" height="120"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts -->
+      <div class="panel-header" style="margin-top:60px">
+        <span class="panel-badge">03</span>
+        <h2 class="panel-title">Visual Analysis Graphs</h2>
+        <span class="panel-line"></span>
+      </div>
+
+      <div class="charts-grid">
+
+        <div class="chart-panel">
+          <div class="chart-panel__header">
+            <span class="chart-title">Stress & Anxiety Radar</span>
+            <span class="chart-badge">MULTI-AXIS</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="radarChart"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-panel">
+          <div class="chart-panel__header">
+            <span class="chart-title">Input Factor Breakdown</span>
+            <span class="chart-badge">POLAR</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="polarChart"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-panel chart-panel--wide">
+          <div class="chart-panel__header">
+            <span class="chart-title">Behaviour Impact on Stress vs Anxiety</span>
+            <span class="chart-badge">BAR COMPARISON</span>
+          </div>
+          <div class="chart-wrap chart-wrap--bar">
+            <canvas id="barChart"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-panel chart-panel--wide">
+          <div class="chart-panel__header">
+            <span class="chart-title">Weekly Stress Trend Simulation</span>
+            <span class="chart-badge">TIME SERIES</span>
+          </div>
+          <div class="chart-wrap chart-wrap--bar">
+            <canvas id="lineChart"></canvas>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Recommendations -->
+      <div class="panel-header" style="margin-top:60px">
+        <span class="panel-badge">04</span>
+        <h2 class="panel-title">AI Recommendations</h2>
+        <span class="panel-line"></span>
+      </div>
+
+      <div class="reco-grid" id="recoGrid">
+        <!-- injected by JS -->
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>DBPA © 2025 · Digital Behaviour Productivity Analysis System</span>
+    <span class="footer-dot">·</span>
+    <span>All metrics are analytical estimations</span>
+  </footer>
+
+  <script src="dbpa.js"></script>
+</body>
+</html>
